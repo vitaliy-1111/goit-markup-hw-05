@@ -21,11 +21,6 @@
   --accent-text-color: #2196f3;
   --margin-projects: 30px;
 }
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
 body {
   margin: 0;
   background-color: var(--background-color);
@@ -35,6 +30,21 @@ body {
   font-size: 14px;
   line-height: 1.46;
   letter-spacing: 0.03em;
+}
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 .list {
   list-style: none;
@@ -87,6 +97,7 @@ body {
   margin-right: 50px;
 }
 .nav-link {
+  position: relative;
   display: block;
   padding-top: 32px;
   padding-bottom: 32px;
@@ -97,6 +108,8 @@ body {
   font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.02em;
+
+  transition: color 250ms linear;
 }
 .nav-link:hover,
 .nav-link:focus {
@@ -105,6 +118,18 @@ body {
 .nav-list .link.current {
   color: var(--accent-text-color);
 }
+.nav-list .link.current::after {
+  position: absolute;
+  content: '';
+  display: block;
+  width: 100%;
+  height: 4px;
+  background-color: var(--accent-text-color);
+  border-radius: 2px;
+  bottom: -1px;
+  left: 0px;
+}
+
 /* mail and telephone in header */
 .page-header .mail {
   margin-left: auto;
@@ -119,6 +144,8 @@ body {
   font-weight: 500;
   line-height: 1.1;
   letter-spacing: 0.02em;
+
+  transition: color 250ms linear;
 }
 .icon-mail {
   margin-right: 10px;
@@ -181,6 +208,7 @@ body {
 
   color: #ffffff;
   background-color: var(--accent-text-color);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 
   font-weight: 700;
   font-size: 16px;
@@ -189,6 +217,8 @@ body {
   letter-spacing: 0.06em;
 
   cursor: pointer;
+
+  transition: background-color 250ms linear;
 }
 .button:hover,
 .button:focus {
@@ -259,6 +289,27 @@ body {
 .works-item:not(:last-child) {
   margin-right: 30px;
 }
+.works-thumb {
+  position: relative;
+}
+.works-item-title {
+  position: absolute;
+  margin: 0;
+  width: 100%;
+  bottom: 0px;
+  right: 0px;
+  min-height: 70px;
+
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+
+  color: #ffffff;
+}
+
 /* Our team section */
 .team-section {
   padding-top: 94px;
